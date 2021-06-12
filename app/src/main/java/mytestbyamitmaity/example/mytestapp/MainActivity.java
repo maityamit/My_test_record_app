@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private DatabaseReference RootRef,MainRef;
     private ProgressDialog progressDialog;
+    private LinearLayout log;
     private EditText editText;
     private ImageView button;
     private TextView client__name;
@@ -54,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+        log = findViewById(R.id.logout);
 
 
         client__name = findViewById(R.id.client_name);
@@ -67,6 +69,17 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.input_exam_name_button);
         editText = findViewById(R.id.input_exam_name);
 
+
+        log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+                Intent loginIntenttt = new Intent ( MainActivity.this,LoginActivity.class );
+                loginIntenttt.addFlags ( Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
+                startActivity ( loginIntenttt );
+                finish ();
+            }
+        });
 
         progressDialog = new ProgressDialog( MainActivity.this);
         progressDialog.setContentView ( R.layout.loading );

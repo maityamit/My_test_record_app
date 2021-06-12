@@ -34,10 +34,42 @@
 
 
 
+    <LinearLayout
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10sp"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_block_24"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:text="Logout"
+            android:layout_gravity="center_horizontal"/>
+
+
+    </LinearLayout>
+
+
+
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ExamListReyclerView"
         android:layout_above="@id/henko"
         android:layout_below="@id/client_name"
+        android:layout_marginTop="5sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
