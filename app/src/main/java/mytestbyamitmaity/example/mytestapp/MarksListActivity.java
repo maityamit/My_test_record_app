@@ -21,6 +21,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -29,6 +30,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+
+import pl.droidsonroids.gif.GifImageView;
 
 public class MarksListActivity extends AppCompatActivity {
 
@@ -39,6 +42,8 @@ public class MarksListActivity extends AppCompatActivity {
     private TextView avr_marks;
     double total = 0,i=0,average=0;
     private EditText in1,in2,in3;
+    private String currentUserID;
+    FirebaseAuth mAuth;
     private RelativeLayout in4;
     String SaveCurrentData;
     private RecyclerView recyclerView;
@@ -50,6 +55,8 @@ public class MarksListActivity extends AppCompatActivity {
 
         sub_id = getIntent().getExtras().get("SUBID").toString();
         exma_id = getIntent().getExtras().get("EXAMID").toString();
+        mAuth = FirebaseAuth.getInstance ();
+        currentUserID = mAuth.getCurrentUser ().getUid ();
 
         in1 = findViewById(R.id.input_test_name);
         in2 = findViewById(R.id.input_om);
@@ -58,7 +65,7 @@ public class MarksListActivity extends AppCompatActivity {
 
 
 
-        RootRef = FirebaseDatabase.getInstance ().getReference ().child("Class").child(exma_id).child("Subjects").child(sub_id).child("Marks");
+        RootRef = FirebaseDatabase.getInstance ().getReference ().child("Users").child(currentUserID).child("Exam").child(exma_id).child("Subjects").child(sub_id).child("Marks");
 
         avr_marks= findViewById(R.id.average_marks);
         progressDialog = new ProgressDialog( MarksListActivity.this);

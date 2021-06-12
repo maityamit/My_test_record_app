@@ -24,6 +24,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_above="@id/henko_subject_list"
         android:id="@+id/Subject_RecyclerView"
+        android:layout_marginTop="20sp"
         android:layout_alignParentTop="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
