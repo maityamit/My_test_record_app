@@ -113,6 +113,7 @@ public class RegisterActivity extends AppCompatActivity {
                             String cuurrentUserID = mauth.getCurrentUser ().getUid ();
 
 
+                            progressDialog.dismiss();
 
 
                             RootRef.child ( "Users" ).child ( cuurrentUserID ).child ( "Name" ).setValue ( namestring );

@@ -3,33 +3,26 @@ package mytestbyamitmaity.example.mytestapp;
 public class ExamClass {
 
 
-    private String Title, ID;
+    private String Name;
 
     public ExamClass() {
 
     }
 
-    public ExamClass(String Tttle, String ID) {
-        this.Title = Tttle;
-        this.ID = ID;
+    public ExamClass(String Name) {
+        this.Name = Name;
+
 
 
     }
 
-
-    public String getTitle() {
-        return Title;
+    public String getName() {
+        return Name;
     }
 
-    public void setTitle(String title) {
-        Title = title;
+    public void setName(String name) {
+        Name = name;
     }
 
-    public String getID() {
-        return ID;
-    }
 
-    public void setID(String ID) {
-        this.ID = ID;
-    }
 }
