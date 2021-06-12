@@ -21,11 +21,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class SubjectsListActivity extends AppCompatActivity {
 
     private String exam_id;
     private DatabaseReference RootRef;
     private ProgressDialog progressDialog;
+    private GifImageView imageView;
     private RecyclerView recyclerView;
 
     @Override
@@ -35,6 +38,8 @@ public class SubjectsListActivity extends AppCompatActivity {
 
         exam_id = getIntent().getExtras().get("EXAMID").toString();
 
+
+        imageView = findViewById(R.id.subject_name_load_image);
         RootRef = FirebaseDatabase.getInstance ().getReference ().child("Class").child(exam_id).child("Subjects");
 
         progressDialog = new ProgressDialog( SubjectsListActivity.this);
@@ -50,7 +55,9 @@ public class SubjectsListActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart ();
 
-        progressDialog.show ();
+
+        recyclerView.setVisibility(View.GONE);
+        imageView.setVisibility(View.VISIBLE);
 
 
         FirebaseRecyclerOptions<Subjects> options =
@@ -66,7 +73,6 @@ public class SubjectsListActivity extends AppCompatActivity {
 
 
                         holder.product_name.setText ( model.getName() );
-                        progressDialog.dismiss();
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -89,6 +95,16 @@ public class SubjectsListActivity extends AppCompatActivity {
                         View view  = LayoutInflater.from ( viewGroup.getContext () ).inflate ( R.layout.subcategory_layout,viewGroup,false );
                         StudentViewHolder2 viewHolder  = new StudentViewHolder2(  view);
                         return viewHolder;
+
+                    }
+
+                    @Override
+                    public void onDataChanged() {
+                        super.onDataChanged();
+
+
+                        imageView.setVisibility(View.GONE);
+                        recyclerView.setVisibility(View.VISIBLE);
 
                     }
                 };

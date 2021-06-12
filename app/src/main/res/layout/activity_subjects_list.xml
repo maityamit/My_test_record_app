@@ -7,6 +7,18 @@
     android:orientation="vertical"
     tools:context=".SubjectsListActivity">
 
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:visibility="gone"
+        android:id="@+id/subject_name_load_image"
+        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_height="match_parent"
+        android:src="@drawable/name_list_unload"
+        android:scaleType="fitXY"/>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Subject_RecyclerView"
         android:layout_width="match_parent"

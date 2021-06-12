@@ -7,6 +7,7 @@
     android:layout_marginBottom="7dp"
     android:layout_marginTop="7dp"
     android:padding="10sp"
+    android:background="@android:color/white"
     app:cardCornerRadius="8dp"
     android:elevation="20dp"
     app:layout_goneMarginEnd="5dp"
@@ -22,22 +23,34 @@
         android:orientation="horizontal">
 
 
-
-        <ImageView
+        <androidx.cardview.widget.CardView
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_gravity="center"
             android:layout_marginStart="15dp"
-            android:src="@drawable/image_subjects"
-            android:layout_gravity="center_vertical"/>
+            app:cardCornerRadius="5dp"
+            android:elevation="5dp">
+
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/gre1"
+                android:layout_gravity="center_vertical"/>
+
+
+        </androidx.cardview.widget.CardView>
+
 
         <TextView
-            android:id="@+id/sub_category_textview"
+            android:id="@+id/exam_layout_exam_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Subjects"
             android:layout_marginStart="10dp"
             android:textSize="18sp"
-            android:textColor="@android:color/black"
+            android:textColor="#1565C0"
             android:textStyle="bold"
             android:padding="20dp"/>
 
