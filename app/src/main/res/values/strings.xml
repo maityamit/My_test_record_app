@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">My Test App</string>
+    <string name="app_name">Track My Test</string>
+    <string name="signin"><u>Sign in</u></string>
+    <string name="signup"><u>Sign up</u></string>
+    <string name="forgotpasssworddetails">Enter Your email address below and a password set up link will send to you shortly in your email</string>
+
 </resources>
