@@ -39,7 +39,7 @@ public class MarksListActivity extends AppCompatActivity {
     String sub_id,exma_id;
     private DatabaseReference RootRef;
     private ProgressDialog progressDialog;
-    private TextView avr_marks;
+    private TextView avr_marks,next_good;
     double total = 0,i=0,average=0;
     private EditText in1,in2,in3;
     private String currentUserID;
@@ -55,6 +55,7 @@ public class MarksListActivity extends AppCompatActivity {
 
         sub_id = getIntent().getExtras().get("SUBID").toString();
         exma_id = getIntent().getExtras().get("EXAMID").toString();
+        next_good  = findViewById(R.id.next_good);
         mAuth = FirebaseAuth.getInstance ();
         currentUserID = mAuth.getCurrentUser ().getUid ();
 
@@ -81,6 +82,7 @@ public class MarksListActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Calendar calendar = Calendar.getInstance ();
+
 
                 SimpleDateFormat currentdate = new SimpleDateFormat ( "dd/MM/yyyy" );
                 SaveCurrentData = currentdate.format ( calendar.getTime () );
@@ -163,9 +165,10 @@ public class MarksListActivity extends AppCompatActivity {
                     @Override
                     protected void onBindViewHolder(@NonNull final StudentViewHolder2 holder, final int position, @NonNull final Marks model) {
 
+                        recyclerView.smoothScrollToPosition(getItemCount());
 
 
-                        DecimalFormat df = new DecimalFormat("0.0");
+                        DecimalFormat df = new DecimalFormat("0.00");
                         holder.title.setText(model.getTitle());
                         holder.om.setText("OM: "+model.getOM());
                         holder.fm.setText("FM: "+model.getFM());
@@ -184,6 +187,10 @@ public class MarksListActivity extends AppCompatActivity {
 
 
                         holder.percentage.setText(String.valueOf(df.format(percen))+"%");
+
+                        float out_of_300 = 3*percen;
+
+                        next_good.setText(String.valueOf(df.format(out_of_300)));
 
 
                         progressDialog.dismiss();
