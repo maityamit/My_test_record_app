@@ -1,6 +1,6 @@
 # Track My Test 📱 built using Java ♨️ 
 
-## About
+## About App
 
 In this App You can store and track the exam number subjectwise of any examination 
 
