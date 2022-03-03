@@ -1,6 +1,6 @@
 name: 📄 Documentation
 description: Report an issue related to documentation
-title: "[Bug]: "
+title: "Documentation: "
 labels: ["documentation"]
 assignees:
   - octocat
