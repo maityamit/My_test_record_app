@@ -18,7 +18,7 @@ body:
     validations:
       required: true
   - type: checkboxes
-    id: terms
+    id: no_prev_same
     attributes:
       label: 👀 Have you spent some time to check if this issue has been raised before?
       description: Have you Googled for a similar issue or checked our older issues for a similar bug?
